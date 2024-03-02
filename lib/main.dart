@@ -51,7 +51,25 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Colors.yellow,
         width: double.infinity,
         height: double.infinity,
-        child: Text("Tomu"),
+        child: Row(
+          children: [
+            Text('22歳'),
+            Container(width: 50, height: 50, color: Colors.red,),
+            Text('広島出身'),
+            Container(width: 50, height: 50, color: Colors.red,),
+            Text('趣味はドラマ鑑賞'),
+            Container(width: 50, height: 50, color: Colors.red,),
+            Text('あとプログラミング'),
+            Column(
+              children : [
+                Text("end"),
+                Text("of"),
+                Text("my"),
+                Text("practice1"),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
