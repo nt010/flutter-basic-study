@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'second_page.dart';
 
 class FirstPage extends StatelessWidget {
-  String nameText = '';
+  final List<String> entries = <String>['A', 'B', 'C'];
 
   @override
   Widget build(BuildContext context) {
@@ -12,41 +12,19 @@ class FirstPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: const Center(
-          child: Text("First Page"),
+          child: Text("List"),
         ),
       ),
-      
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
-              TextField(
-                onChanged: (text) {
-                  nameText = text;
-                },
-                //obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Enter your name',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SecondPage(nameText),
-                    ),
-                  );
-                },
-              child: const Text("Next Page"),
-              ),
-            ],
-          ),
-        ),
+      //ListViewはスクロールできる
+      body: ListView.builder(
+        padding: const EdgeInsets.all(8),
+        itemCount: entries.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            height: 50,
+            child: Center(child: Text('Entry ${entries[index]}')),
+          );
+        }
       ),
     );
   }
