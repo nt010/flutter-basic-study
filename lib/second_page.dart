@@ -19,6 +19,7 @@ class SecondPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('images/coffee.jpg'),
             Text(name,style: TextStyle(fontSize: 50),),
             ElevatedButton(
               onPressed: (){
